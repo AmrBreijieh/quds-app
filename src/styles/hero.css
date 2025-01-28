@@ -1,0 +1,93 @@
+.slide-text-overlay {
+    /* Positions the text overlay similarly to before */
+    position: absolute;
+    inset: 0;
+    /* top: 0; right: 0; bottom: 0; left: 0 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.slide-title {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    /* Fade in */
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards 0.3s;
+    padding: 0 1rem;
+}
+
+.slide-subtitle {
+    font-size: 1.5rem;
+    /* ~ 18px */
+    color: #fff;
+    opacity: 0;
+    animation: fadeInUp 1.2s ease forwards 0.5s;
+    padding: 0 1rem;
+
+}
+
+.image-fill {
+    width: 100%;
+    /* equivalent to w-full */
+    height: calc(100vh - 80px);
+    /* equivalent to h-full */
+    object-fit: cover;
+    object-position: bottom;
+}
+
+/* Keyframes for fade in + slide up */
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 840px) {
+    .slide-title {
+        font-size: 2rem;
+    }
+
+    .slide-subtitle {
+        font-size: 1.1rem;
+    }
+
+}
+
+.scale-initial {
+    transform: scale(1.04);
+    transition: transform 7s ease;
+}
+
+
+.slide-image {
+    transition: transform 7s ease;
+    width: 100%;
+    height: calc(100vh - 80px);
+    object-fit: cover;
+    object-position: 80% center;
+    transform-origin: bottom;
+}
+
+.center {
+    object-position: center;
+}
+
+.swiper-slide-active .slide-image {
+    transform: scale(1.04);
+    /* Adjust the scale factor to your liking */
+}
